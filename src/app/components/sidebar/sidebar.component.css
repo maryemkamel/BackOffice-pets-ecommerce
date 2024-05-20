@@ -1,0 +1,49 @@
+/* styles.css ou dans le fichier de styles de votre composant */
+.sidebar {
+    padding-top: 20px; /* Espace en haut de la barre latérale */
+  }
+  
+  .sidebar .nav-item {
+    margin-bottom: 10px; /* Espace entre les éléments de navigation */
+  }
+  
+  .sidebar .nav-link,
+  .sidebar .logout {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s;
+  }
+  
+  .sidebar .nav-link:hover,
+  .sidebar .logout:hover {
+    background-color: #f0f0f0; /* Couleur de fond au survol */
+  }
+  
+  .sidebar .material-icons,
+  .sidebar .logout-icon {
+    margin-right: 10px; /* Espace entre l'icône et le texte */
+    font-size: 24px; /* Taille de l'icône */
+  }
+  
+  .sidebar .nav-text,
+  .sidebar .text {
+    font-size: 16px; /* Taille du texte */
+  }
+  
+  .sidebar .logout {
+    color: red; /* Couleur du texte Logout en rouge */
+  }
+  
+  .sidebar .logout-icon {
+    color: red; /* Couleur de l'icône Logout en rouge */
+  }
+  
+  /* Nouveau CSS ajouté pour supprimer les puces */
+  .sidebar ul {
+    list-style-type: none;
+    padding-left: 0; /* Retirer le padding gauche de la liste */
+  }
+  

@@ -1,0 +1,96 @@
+/* Main content container */
+.main {
+  margin-left: 250px; /* Adjust according to the width of your sidebar */
+  margin-top: 60px; /* Adjust according to the height of your navbar */
+  padding: 20px; /* Optional, for spacing */
+  height: calc(100vh - 60px); /* Ensure main content takes up the remaining height */
+  overflow-y: auto; /* Make sure the main content is scrollable if it overflows */
+  box-sizing: border-box; /* Ensure padding is included in height calculation */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Card */
+.card {
+  width: 100%; /* Make the card take up the full width of its container */
+  height: auto; /* Let the height adjust to the content */
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 0; /* Remove any additional margins */
+  margin-top: 20px; /* Adjust top margin */
+}
+
+/* Styling for the main card header */
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the main card body */
+.card-body {
+  width: 100%;
+  height: 100%; /* Ensure the card body takes up the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Table adjustments for full width */
+.table {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 0;
+}
+
+body {
+  margin: 0;
+  background: #FAFAFA;
+}
+
+/* CSS alerts */
+.alert-dismissible.fade.show {
+  animation: slideInRight 0.5s forwards, slideOutRight 0.5s 2.5s forwards;
+}
+
+.bottom-toolbar {
+  display: none;
+}
+
+/* Modifiez la hauteur du corps pour compenser la suppression de la barre d'outils */
+body {
+  margin-bottom: 0; /* Ajustez la marge inférieure pour compenser la suppression de la barre d'outils */
+  padding-bottom: 0; /* Ajustez le padding inférieur pour compenser la suppression de la barre d'outils */
+}
+
+/* Augmenter la taille du toggle switch */
+.form-switch .form-check-input {
+  width: 60px; /* Largeur souhaitée */
+  height: 30px; /* Hauteur souhaitée */
+}
+
+/* Ajuster la taille du curseur */
+.form-switch .form-check-input:before {
+  width: 28px; /* Largeur du curseur */
+  height: 28px; /* Hauteur du curseur */
+  top: 1px; /* Ajuster la position verticale du curseur */
+}
+
+.custom-input, .custom-button {
+  height: 38px; /* Ajustez cette valeur selon le besoin pour diminuer la hauteur */
+}
+
+/* Si vous souhaitez également ajuster la taille du texte ou d'autres propriétés */
+.custom-input, .custom-button {
+  font-size: 0.875rem; /* Diminue la taille du texte */
+}
+
+.custom-button {
+  width: auto; /* Ajuste la largeur en fonction du contenu */
+  padding-left: 8px; /* Ajoute de l'espace à gauche */
+  padding-right: 8px; /* Ajoute de l'espace à droite */
+}
+
+.custom-input {
+  width: auto; /* Ajustez cette valeur selon vos besoins */
+}

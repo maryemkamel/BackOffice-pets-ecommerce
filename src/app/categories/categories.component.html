@@ -1,0 +1,83 @@
+<div class="card">
+  <!-- Alertes de suppression -->
+  <div *ngIf="showSuccessDeleteAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    Category deleted successfully!
+  </div>
+  <div *ngIf="showErrorDeleteAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    Error deleting category. Please try again later.
+  </div>
+  <!-- Alertes de mise à jour -->
+  <div *ngIf="showSuccessUpdateAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    Category updated successfully!
+  </div>
+  <div *ngIf="showErrorUpdateAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    Error updating category. Please try again later.
+  </div>
+
+  <div class="card-body">
+    <h3>Add category</h3>
+    <br>
+    <form>
+      <div class="row mt-2 d-flex">
+        <div class="form-group row">
+          <div class="col-md-6">
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Category Name" [(ngModel)]="newCategory.name" name="categoryName">
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="btn btn-primary" (click)="createCategory()">
+              Add <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <h3>List of categories</h3>
+    <br>
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+      <tr>
+        <th>Id</th>
+        <th>Category Name</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cat of categories">
+        <td>{{ cat.id }}</td>
+        <td>{{ cat.name }}</td>
+        <td>
+          <button type="button" class="btn btn-link btn-sm" (click)="openEditModal(cat.id)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="btn btn-link btn-sm text-danger" (click)="openConfirmationDialog(cat.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!-- Pop-up d'édition de catégorie -->
+    <div class="modal" id="editCategoryModal" tabindex="-1" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeEditModal()"></button>
+          </div>
+          <div class="modal-body" *ngIf="editedCategory">
+            <div class="mb-3">
+              <label for="editCategoryName" class="form-label">Category Name</label>
+              <input type="text" class="form-control" id="editCategoryName" [(ngModel)]="editedCategory.name">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeEditModal()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="saveCategory()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

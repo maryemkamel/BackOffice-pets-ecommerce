@@ -1,0 +1,52 @@
+<!-- sidebar.component.html -->
+<br>
+<br>
+<nav class="p-3 sidebar">
+  <ul class="list-unstyled">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/dashboard']">
+        <span class="material-icons">dashboard</span>
+        <span class="nav-text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/users']">
+        <span class="material-icons">people</span>
+        <span class="nav-text">Users</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/categories']">
+        <span class="material-icons">category</span>
+        <span class="nav-text">Categories</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/subcategories']">
+        <span class="material-icons">subdirectory_arrow_right</span>
+        <span class="nav-text">Subcategories</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/products']">
+        <span class="material-icons">inventory</span>
+        <span class="nav-text">Products</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/orders']">
+        <span class="material-icons">shopping_cart</span>
+        <span class="nav-text">Orders</span>
+      </a>
+    </li>
+  </ul>
+  <br>
+  <ul class="list-unstyled">
+    <li class="nav-item">
+      <a class="nav-link logout" [routerLink]="['/logout']">
+        <span class="material-icons logout-icon">logout</span>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+  </ul>
+</nav>

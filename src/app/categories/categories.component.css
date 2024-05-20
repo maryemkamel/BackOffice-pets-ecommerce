@@ -1,0 +1,120 @@
+/* Styling for the main card */
+.card {
+  width: 100%; /* Take up the full width of its container */
+  max-width: 100%; /* Ensure it doesn't overflow */
+  height: auto; /* Let the height adjust to the content */
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0; /* Adjust margins to fit your layout */
+}
+
+/* Styling for the main card header */
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the main card body */
+.card-body {
+  /* Add styles for the content inside the main card body */
+}
+
+body {
+  margin-top: 20px;
+  background: #FAFAFA;
+}
+
+/* CSS alerts */
+.alert-dismissible.fade.show {
+  animation: slideInRight 0.5s forwards, slideOutRight 0.5s 2.5s forwards;
+}
+
+/* Form container styles */
+.center {
+  position: relative;
+  padding: 50px 50px;
+  border-radius: 10px;
+}
+
+/* Heading styles */
+.center h1 {
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+  color: #ffffff;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
+  margin-top: 2%;
+}
+
+/* Input container styles */
+.center .inputbox {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-top: 1%;
+  margin-bottom: 20px; /* Adjusted margin */
+}
+
+/* Input styles */
+.center .inputbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid dodgerblue;
+  outline: none;
+  background: #000000;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+
+/* Label styles */
+.center .inputbox span {
+  position: absolute;
+  color: dodgerblue;
+  top: 14px;
+  left: 20px;
+  font-size: 1em;
+  transition: 0.6s;
+  font-family: sans-serif;
+}
+
+/* Label animation on focus or valid input */
+.center .inputbox input:focus ~ span,
+.center .inputbox input:valid ~ span {
+  transform: translateX(-13px) translateY(-35px);
+  font-size: 1em;
+}
+
+/* Button styles */
+.center .inputbox [type="button"] {
+  width: 50%;
+  background: dodgerblue;
+  color: #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+.center .inputbox:hover [type="button"] {
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
+.form-container {
+  position: absolute;
+  margin-top: 4%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(38, 37, 37, 0.8); /* Transparent white background */
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+}

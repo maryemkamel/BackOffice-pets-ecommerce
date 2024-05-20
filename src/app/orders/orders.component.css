@@ -1,0 +1,67 @@
+/* Styling for the main card */
+.card {
+    width: 100%; /* Take up the full width of its container */
+    max-width: 100%; /* Ensure it doesn't overflow */
+    height: auto; /* Let the height adjust to the content */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0; /* Adjust margins to fit your layout */
+  }
+  
+  /* Styling for the main card header */
+  .card-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for the main card body */
+  .card-body {
+    /* Add styles for the content inside the main card body */
+  }
+  
+  body {
+    margin-top: 20px;
+    background: #FAFAFA;
+  }
+  .badge {
+    padding: 0.5em 1em;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  
+  .badge-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .badge-warning {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .badge-info {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .badge-success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .badge-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  /* Style global pour les badges personnalisés */
+.custom-rounded-badge {
+  border-radius: 30px; /* Ajustez cette valeur selon vos besoins */
+  width: 120px; /* Assurez-vous que cette largeur est bien appliquée */
+  text-align: center; /* Pour centrer le texte à l'intérieur du badge */
+}
+.select-gray {
+  background-color: rgb(230, 229, 229);
+}

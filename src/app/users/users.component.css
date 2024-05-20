@@ -1,0 +1,79 @@
+/*
+ !* Styling for the main card *!
+ .card {
+    width: fit-content; !* Ajustez selon vos besoins *!
+    height: fit-content; !* Ajustez selon vos besoins *!
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+  !* Styling for the main card header *!
+  .card-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  !* Styling for the main card body *!
+  .card-body {
+    !* Add styles for the content inside the main card body *!
+  }
+  body{
+    margin-top:20px;
+    background:#FAFAFA;
+}
+!* CSS pour fixer la largeur minimale des badges *!
+.status-badge {
+  min-width: 80px;  !* Ajustez cette largeur selon vos besoins *!
+  text-align: center; !* Centre le texte à l'intérieur du badge *!
+}
+*/
+
+
+/* user.component.css */
+
+/* Styling for the main card */
+.card {
+  width: 100%; /* Make the card take up the full width of its container */
+  max-width: 100%; /* Ensure it doesn't overflow */
+  height: auto; /* Let the height adjust to the content */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 0; /* Remove the excessive margin */
+}
+
+/* Styling for the main card header */
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the main card body */
+.card-body {
+  /* Add styles for the content inside the main card body */
+}
+
+/* CSS to fix the minimum width of the badges */
+.status-badge {
+  min-width: 80px; /* Adjust this width as needed */
+  text-align: center; /* Center the text inside the badge */
+}
+
+/* Optional: Add styles to ensure table responsiveness */
+.table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+body {
+  margin-top: 20px;
+  background: #FAFAFA;
+}
+
+
+

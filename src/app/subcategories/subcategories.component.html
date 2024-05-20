@@ -1,0 +1,97 @@
+<div class="card">
+  <!-- Alertes de suppression -->
+  <div *ngIf="showSuccessDeleteAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    SubCategory deleted successfully!
+  </div>
+  <div *ngIf="showErrorDeleteAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    Error deleting SubCategory. Please try again later.
+  </div>
+  <!-- Alertes de mise à jour -->
+  <div *ngIf="showSuccessUpdateAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+    SubCategory updated successfully!
+  </div>
+  <div *ngIf="showErrorUpdateAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    Error updating SubCategory. Please try again later.
+  </div>
+
+  <div class="card-body">
+    <h3>Add Subcategory</h3>
+    <br>
+    <form (submit)="createSubCategory()">
+      <div class="row mt-2 d-flex">
+        <div class="form-group row">
+          <div class="col-md-6">
+            <input class="form-control" type="text" [(ngModel)]="newSubcategory.name" name="name" placeholder="Subcategory Name">
+          </div>
+          <div class="col-md-4">
+            <select class="form-select" [(ngModel)]="newSubcategory.categoryId" name="categoryId">
+              <option selected>Select Category</option>
+              <!-- Boucle sur les catégories pour créer des options -->
+              <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">
+              Add <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <h3>List of Subcategories</h3>
+    <br>
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+      <tr>
+        <th>Id</th>
+        <th>Subcategory Name</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cat of subcategories">
+        <td>{{ cat.id }}</td>
+        <td>{{ cat.name }}</td>
+        <td>
+          <button type="button" class="btn btn-link btn-sm" (click)="openEditModal(cat.id)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="btn btn-link btn-sm text-danger" (click)="openConfirmationDialog(cat.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <!-- Pop-up d'édition de sous-catégorie -->
+    <div class="modal" id="editSubcategoryModal" tabindex="-1" aria-labelledby="editSubcategoryModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editSubcategoryModalLabel">Edit Subcategory</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeEditModal()"></button>
+          </div>
+          <div class="modal-body" *ngIf="editedSubCategory">
+            <div class="mb-3">
+              <label for="editSubcategoryName" class="form-label">Subcategory Name</label>
+              <input type="text" class="form-control" id="editSubcategoryName" [(ngModel)]="editedSubCategory.name">
+            </div>
+            <div class="mb-3">
+              <label for="editSubcategoryCategory" class="form-label">Category</label>
+              <select class="form-select" [(ngModel)]="editedSubCategory.categoryId" name="categoryId">
+                <option selected>Select Category</option>
+                <!-- Boucle sur les catégories pour créer des options -->
+                <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeEditModal()">Close</button>
+            <button type="button" class="btn btn-primary" (click)="saveSubcategory()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

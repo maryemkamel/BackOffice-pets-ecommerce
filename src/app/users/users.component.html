@@ -1,0 +1,134 @@
+<!-- Users Table -->
+<div class="card" style="width: 84rem; margin-right: 2000px; height: 43rem;">
+  <div class="card-body">
+    <table class="table align-middle mb-0 bg-white">
+      <thead class="bg-light">
+      <tr>
+        <th>id</th>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Status</th>
+        <th>Option</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="ms-3">
+              <p class="fw-normal mb-1">{{ user.firstname }} {{ user.lastname }}</p>
+            </div>
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{ user.email }}</p>
+        </td>
+        <td>
+          <p class="text-muted mb-0">{{ user.numberPhone }}</p>
+        </td>
+        <td>
+          <span class="badge rounded-pill status-badge bg-{{ user.isActive === 'ACTIVE' ? 'success' : 'danger' }}">{{ user.isActive }}</span>
+          <!-- Toggle Status Button -->
+          <button type="button" class="btn btn-sm btn-outline-secondary" (click)="toggleUserStatus(user)">
+            {{ user.isActive === 'ACTIVE' ? 'Deactivate' : 'Activate' }}
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-link btn-sm" (click)="openEditModal(user)">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button type="button" class="btn btn-link btn-sm " (click)="deleteUser(user)">
+            <i class="fas fa-trash-alt text-danger"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!-- Deleted Users Section -->
+    <div *ngIf="deletedUsers.length > 0">
+      <h4>Deleted Users</h4>
+      <ul>
+        <li *ngFor="let deletedUser of deletedUsers">
+          {{ deletedUser.userId }}
+          <button type="button" class="btn btn-link btn-sm" (click)="restoreUser(deletedUser)">
+            Restore
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('editUserModal')"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="editFirstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="editFirstName" [(ngModel)]="editedUser.firstname">
+            </div>
+            <div class="mb-3">
+              <label for="editLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="editLastName" [(ngModel)]="editedUser.lastname">
+            </div>
+            <div class="mb-3">
+              <label for="editEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="editEmail" [(ngModel)]="editedUser.email">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeModal('editUserModal')">Close</button>
+            <button type="button" class="btn btn-primary" (click)="saveUser()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addUserModalLabel">Add User</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeModal('addUserModal')"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="addFirstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="addFirstName" [(ngModel)]="newUser.firstname">
+            </div>
+            <div class="mb-3">
+              <label for="addLastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="addLastName" [(ngModel)]="newUser.lastname">
+            </div>
+            <div class="mb-3">
+              <label for="addEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="addEmail" [(ngModel)]="newUser.email">
+            </div>
+            <div class="mb-3">
+              <label for="addPhoneNumber" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="addPhoneNumber" [(ngModel)]="newUser.numberPhone">
+            </div>
+            <div class="mb-3">
+              <label for="addStatus" class="form-label">Status</label>
+              <select class="form-control" id="addStatus" [(ngModel)]="newUser.isActive">
+                <option value="ACTIVE">Active</option>
+                <option value="INACTIVE">Inactive</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeModal('addUserModal')">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addUser()">Add User</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
