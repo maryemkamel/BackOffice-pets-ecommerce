@@ -16,7 +16,7 @@ export class OrdersComponent  implements OnInit{
   currentPage: number = 1;
   itemsPerPage: number = 8;
   selectedStatus: string = '';
-  orderStatuses: string[] = ['CREATED', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELED'];
+  orderStatuses: string[] = ['CREATED', 'SHIPPED', 'DELIVERED', 'CANCELED'];
 
   constructor(private ordersService:OrdersService){
 

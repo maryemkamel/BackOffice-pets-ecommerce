@@ -1,6 +1,29 @@
 /* styles.css */
 
 .navbar-logo {
-    height: 30px;
-    /* Ajoutez d'autres styles selon vos besoins */
+    height: 25px;
 }
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .user-name {
+    color: #FF5733; /* Change this color to whatever you prefer */
+    font-weight: bold;
+  }
+  .user-role {
+    color: #555; /* A different color for the role */
+    font-size: 0.875rem; /* Slightly smaller text for the role */
+  }
+  .user-info {
+    display: flex;
+    align-items: center;
+    padding-right: 10px; /* Add padding to the right */
+    margin-right: 10px; /* Additional space to the right of the user info */
+  
+  }
+  .custom-navbar-bg {
+    background-color: #eae7e7; 
+  }

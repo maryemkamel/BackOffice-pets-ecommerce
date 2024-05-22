@@ -1,55 +1,65 @@
 <div class=" dashboard-card" style="width: 100%; overflow-y: auto; max-height: 700px;">
  
-   	<!-- Component Start -->
-     <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl" style="display: flex;">
-      <!-- Tile 1 -->
-      <div class="flex items-center p-4 bg-white rounded">
-          <div class="flex flex-shrink-0 items-center justify-center bg-green-200 h-16 w-16 rounded">
-              <svg class="w-6 h-6 fill-current text-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-              </svg>
-          </div>
-          <div class="flex-grow flex flex-col ml-4"style="width: 200px;">
-              <span class="text-xl font-bold">$8,430</span>
-              <div class="flex items-center justify-between">
-                  <span class="text-gray-500">Revenue last 30 days</span>
-                  <span class="text-green-500 text-sm font-semibold ml-2">+12.6%</span>
-              </div>
-          </div>
-      </div>
-      <!-- Tile 2 -->
-      <div class="flex items-center p-4 bg-white rounded">
-          <div class="flex flex-shrink-0 items-center justify-center bg-red-200 h-16 w-16 rounded">
-              <svg class="w-6 h-6 fill-current text-red-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-          </div>
-          <div class="flex-grow flex flex-col ml-4"style="width: 200px;">
-              <span class="text-xl font-bold">211</span>
-              <div class="flex items-center justify-between">
-                  <span class="text-gray-500">Sales last 30 days</span>
-                  <span class="text-red-500 text-sm font-semibold ml-2">-8.1%</span>
-              </div>
-          </div>
-      </div>
-      <!-- Tile 3 -->
-      <div class="flex items-center p-4 bg-white rounded" >
-          <div class="flex flex-shrink-0 items-center justify-center bg-green-200 h-16 w-16 rounded">
-              <svg class="w-6 h-6 fill-current text-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-              </svg>
-          </div>
-          <div class="flex-grow flex flex-col ml-4"style="width: 200px;" >
-              <span class="text-xl font-bold">140</span>
-              <div class="flex items-center justify-between">
-                  <span class="text-gray-500">Customers last 30 days</span>
-                  <span class="text-green-500 text-sm font-semibold ml-2">+28.4%</span>
-              </div>
-          </div>
-      </div>
-      
-      
+  <div class="grid lg:grid-cols-2 md:grid-cols-2 gap-6 w-full max-w-6xl" style="display: flex;">
+    <!-- Tile 1: Total Users -->
+    <div class="flex items-center p-4 bg-white rounded">
+        <div class="flex flex-shrink-0 items-center justify-center bg-blue-200 h-16 w-16 rounded">
+            <svg class="w-6 h-6 fill-current text-blue-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 12a5 5 0 100-10 5 5 0 000 10zm-2-3a2 2 0 114-0 2 2 0 01-4 0zm-5 9a5 5 0 0110 0H3zm7-1h6v1a4 4 0 01-8 0v-1z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="flex-grow flex flex-col ml-4" style="width: 200px;">
+            <span class="text-xl font-bold">{{ totalUsers }}</span>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500">Total Users</span>
+            </div>
+        </div>
+    </div>
+    <!-- Tile 2: Total Orders -->
+    <div class="flex items-center p-4 bg-white rounded">
+        <div class="flex flex-shrink-0 items-center justify-center bg-yellow-200 h-16 w-16 rounded">
+            <svg class="w-6 h-6 fill-current text-yellow-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h10a1 1 0 000-2H5zm0 4a1 1 0 000 2h10a1 1 0 000-2H5z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="flex-grow flex flex-col ml-4" style="width: 200px;">
+            <span class="text-xl font-bold">{{totalOrders}}</span>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500">Total Orders</span>
+            </div>
+        </div>
+    </div>
+    <!-- Tile 3: Total Products -->
+    <div class="flex items-center p-4 bg-white rounded">
+        <div class="flex flex-shrink-0 items-center justify-center bg-green-200 h-16 w-16 rounded">
+            <svg class="w-6 h-6 fill-current text-green-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4 4a1 1 0 011-1h10a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4zm2 1v10h8V5H6z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="flex-grow flex flex-col ml-4" style="width: 200px;">
+            <span class="text-xl font-bold">{{totalProducts}}</span>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500">Total Products</span>
+            </div>
+        </div>
+    </div>
+    <!-- Tile 4: Total Sales -->
+    <div class="flex items-center p-4 bg-white rounded">
+        <div class="flex flex-shrink-0 items-center justify-center bg-red-200 h-16 w-16 rounded">
+            <svg class="w-6 h-6 fill-current text-red-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 2a6 6 0 00-6 6v4h12V8a6 6 0 00-6-6zM4 18a2 2 0 100-4h12a2 2 0 100 4H4z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        <div class="flex-grow flex flex-col ml-4" style="width: 200px;">
+            <span class="text-xl font-bold">$245</span>
+            <div class="flex items-center justify-between">
+                <span class="text-gray-500">Total Sales</span>
+            </div>
+        </div>
+    </div>
   </div>
+  
+  
 	<!-- Component End  -->
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css">

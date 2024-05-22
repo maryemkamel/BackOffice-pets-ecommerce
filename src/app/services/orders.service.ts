@@ -2,13 +2,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Order } from '../model/order'; // Assurez-vous que le chemin est correct
+import { Order } from '../model/order';
+import { User } from '../model/user';
+import {environment} from "../../environment/environment";
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
-  private apiUrl = 'http://localhost:8084'; // Remplacez par l'URL correcte de votre API
+  private apiUrl = 'http://localhost:8084'; 
+  private apiUrlUser = environment.apiUrl;
+
 
   constructor(private http: HttpClient) {}
 
@@ -21,5 +27,11 @@ export class OrdersService {
     const data = {}; 
     return this.http.patch(url, data);
   }
+  
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrlUser + "/users/");
+  }
+
+
 }
 

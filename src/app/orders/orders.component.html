@@ -43,7 +43,6 @@
               <span class="badge rounded-pill status-badge"
                     [ngClass]="{
                       'bg-primary': order.order.status === 'CREATED',
-                      'bg-warning': order.order.status === 'PROCESSING',
                       'bg-info': order.order.status === 'SHIPPED',
                       'bg-success': order.order.status === 'DELIVERED',
                       'bg-danger': order.order.status === 'CANCELED'

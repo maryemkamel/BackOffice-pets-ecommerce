@@ -1,6 +1,13 @@
+import { OrdersService } from './../services/orders.service';
 
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
+import { User } from '../model/user';
+import { UsersService } from './../services/users.service';
+import { ProductsService } from '../services/products.service';
+import { Product } from '../model/product';
+import { Order } from '../model/order';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -8,32 +15,54 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  constructor() { }
+  constructor(private usersService: UsersService , private ordersService:OrdersService,private productsService:ProductsService) { }
   showCard: boolean = true;
+  totalUsers: number = 0;
+  totalOrders: number = 0;
+  totalProducts: number = 0;
+  users:User[]=[];
+  products:Product[]=[];
+  orders:Order[]=[];
 
 
-  ngOnInit(): void {
-    // Configuration du graphique
-    const ctx = document.getElementById('analytics-card-01') as HTMLCanvasElement;
-    const chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-        datasets: [{
-          label: 'Sales',
-          data: [10, 20, 30, 25, 35, 45, 40],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
+
+  ngOnInit(): void { 
+    this.getAllUsers();
+    this.getAllOrders();
+    this.getAllProducts();
+
+
+  }
+  getAllUsers(): void {
+    this.usersService.getAllUsers().subscribe(users => {
+      this.users = users;
+      this.calculateTotals();
+
+      console.log('Users fetched:', this.users); // Debug log
     });
   }
+  getAllProducts(): void {
+    this.productsService.getAllProducts().subscribe(data => {
+      this.products = data;
+      this.calculateTotals();
+
+      console.log('Products loaded:', this.products);
+    });
+  }
+  getAllOrders(): void {
+    this.ordersService.getAllOrders().subscribe(data => {
+      this.orders = data;
+      this.calculateTotals();
+
+      console.log('Categories loaded:', this.orders);
+    })
+  }
+  calculateTotals(): void {
+    this.totalUsers = this.users.length;
+    console.log("total users is :",this.totalUsers);
+    this.totalOrders = this.orders.length;
+    this.totalProducts = this.products.length;
+    //this.totalSales = this.orders.reduce((acc, order) => acc + order.amount, 0);
+  }
+
 }
